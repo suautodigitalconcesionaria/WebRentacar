@@ -342,12 +342,7 @@ h2 {
     font-size: 0.8rem;
 }
 
-/* 9. RESPONSIVE (Para celulares) */
-@media (max-width: 768px) {
-    .hero h1 { font-size: 2.2rem; }
-    .collage-container { grid-template-columns: repeat(2, 1fr); }
-    .stats { flex-direction: column; gap: 40px; }
-}
+
 /* Estado inicial de los elementos para que "aparezcan" */
 .card, .req-item, .paso, .collage-item {
     opacity: 0;
@@ -1524,42 +1519,20 @@ section::after {
     box-shadow: 0 0 20px rgba(0, 168, 255, 0.6) !important;
     text-shadow: 0 0 10px white;
 }
-.intro-overlay {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100vh;
-    background: #000;
-    z-index: 9999; /* Por encima de todo */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: opacity 1s ease, visibility 1s;
-}
 
-#intro-video {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    object-fit: cover;
-    opacity: 0.5; /* Para que el video no tape el texto */
-}
-
-.intro-content {
-    position: relative;
-    text-align: center;
-    z-index: 10000;
-    padding: 20px;
-}
-
-.intro-content h1 {
-    font-size: 3rem;
-    margin-bottom: 30px;
-    text-shadow: 0 0 20px rgba(0, 168, 255, 0.8);
-    max-width: 800px;
-}
-
-/* Clase para ocultar la intro */
-.intro-hidden {
-    opacity: 0;
-    visibility: hidden;
+/* 9. RESPONSIVE (Para celulares) */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.2rem; }
+    .section-header h2 { font-size: 2.2rem; }
+    .collage-container { grid-template-columns: repeat(2, 1fr); }
+    .stats { display: flex; /* Asegúrate de que tenga display flex */
+    flex-direction: column; 
+    gap: 40px;
+    
+    /* ESTO ES LO QUE CENTRA TODO */
+    align-items: center;     /* Centra horizontalmente los hijos */
+    justify-content: center; /* Centra verticalmente (si el contenedor tiene altura) */
+    text-align: center;      /* Centra el texto dentro de los elementos */
+    
+    width: 100%; }
 }
