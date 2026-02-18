@@ -1,0 +1,525 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suauto Rent a Car | Donde los caminos encuentran su rumbo</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="bg-glow-1"></div>
+<div class="bg-glow-2"></div>
+<header>
+    <nav class="nav-container">
+        <div class="logo">SUAUTO <span>Rent a Car</span> </div>
+        
+        <div class="menu-hamburguesa" id="menu-btn">
+            <div class="linea"></div>
+            <div class="linea"></div>
+            <div class="linea"></div>
+        </div>
+
+        <ul class="nav-links" id="nav-menu">
+            <li><a href="#flota">Flota</a> </li>
+            <li><a href="#requisitos">Requisitos</a></li>
+            <li><a href="#pasos">Cómo Alquilar</a></li>
+            <li><a href="#comunidad">Comunidad</a> </li>
+            <li><a href="#destinos">Destinos</a> </li>
+            <li><a href="#faq">Preguntas</a></li>
+        </ul>
+    </nav>
+</header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Donde los caminos encuentran su rumbo</h1>
+            <p>Libertad para recorrer Argentina a tu ritmo.</p>
+            <a href="#flota" class="btn-main">Ver Flota</a>
+        </div>
+    </section>
+
+   <section id="flota" class="flota-container">
+    <h2>Nuestra Flota</h2>
+    <div class="flota-carousel-wrapper">
+        <div class="flota-grid carousel-track">
+    
+        
+     
+        <div class="card-auto" data-categoria="compacto">
+            <div class="card-header">
+                <h3>TOYOTA ETIOS</h3>
+                <p>5 Puertas</p>
+                <span class="badge">Económico</span>
+            </div>
+            <div class="img-container">
+                <img src="etios-transparente.png" alt="Toyota Etios" class="car-img">
+                <div class="car-shadow"></div>
+            </div>
+            <div class="card-specs">
+                <div class="spec">👤 5 Pasajeros</div>
+                <div class="spec">🧳 2 Valijas</div>
+                <div class="spec">⚙️ Manual</div>
+            </div>
+            <button class="btn-reserva" onclick="window.open('https://wa.me/2302411066?text=Hola! Me interesa alquilar un Etios') ">Reservar ahora</button>
+        </div>
+
+
+<div class="card-auto" data-categoria="sedan">
+    <div class="card-header">
+        <h3>RENAULT LOGAN</h3>
+        <p>Sedán Amplio</p>
+        <span class="badge">Ideal Familia</span>
+    </div>
+    <div class="img-container">
+        <img src="logan.png" alt="Renault Logan" class="car-img">
+        <div class="car-shadow"></div>
+    </div>
+    <div class="card-specs">
+        <div class="spec">👤 5 Pasajeros</div>
+        <div class="spec">🧳 4 Valijas</div>
+        <div class="spec">⚙️ Manual</div>
+    </div>
+    <button class="btn-reserva" onclick="window.open('https://wa.me/2302411066?text=Hola! Me interesa alquilar un Logan') ">Reservar Logan</button>
+</div>
+
+<div class="card-auto" data-categoria="utilitario">
+    <div class="card-header">
+        <h3>RENAULT KANGOO</h3>
+        <p>5 Asientos</p>
+        <span class="badge">Versatilidad total</span>
+    </div>
+    <div class="img-container">
+        <img src="kangoo.png" alt="Renault Kangoo" class="car-img">
+        <div class="car-shadow"></div>
+    </div>
+    <div class="card-specs">
+        <div class="spec">👤 5 Pasajeros</div>
+        <div class="spec">🧳 5 Valijas</div>
+        <div class="spec">⚙️ Manual</div>
+    </div>
+    <button class="btn-reserva" onclick="window.open('https://wa.me/2302411066?text=Hola! Me interesa alquilar una Kangoo') ">Reservar Kangoo</button>
+</div>
+
+<div class="card-auto" data-categoria="compacto">
+    <div class="card-header">
+        <h3>TOYOTA YARIS</h3>
+        <p>Hatchback</p>
+        <span class="badge">Tecnología y Confort</span>
+    </div>
+    <div class="img-container">
+        <img src="yaris.png" alt="Toyota Yaris" class="car-img">
+        <div class="car-shadow"></div>
+    </div>
+    <div class="card-specs">
+        <div class="spec">👤 5 Pasajeros</div>
+        <div class="spec">🧳 3 Valijas</div>
+        <div class="spec">⚙️ Manual/Auto</div>
+    </div>
+    <button class="btn-reserva"onclick="window.open('https://wa.me/2302411066?text=Hola! Me interesa alquilar un Yaris') ">Reservar Yaris</button>
+</div>
+
+<div class="card-auto" data-categoria="sedan">
+    <div class="card-header">
+        <h3>TOYOTA COROLLA</h3>
+        <p>Sedán Premium</p>
+        <span class="badge">El más elegido</span>
+    </div>
+    <div class="img-container">
+        <img src="corolla.png" alt="Toyota Corolla" class="car-img">
+        <div class="car-shadow"></div>
+    </div>
+    <div class="card-specs">
+        <div class="spec">👤 5 Pasajeros</div>
+        <div class="spec">🧳 4 Valijas</div>
+        <div class="spec">⚙️ Automático</div>
+    </div>
+    <button class="btn-reserva" onclick="window.open('https://wa.me/2302411066?text=Hola! Me interesa alquilar un Corolla') ">Reservar Corolla</button>
+</div>
+
+<div class="card-auto" data-categoria="compacto">
+    <div class="card-header">
+        <h3>RENAULT SANDERO</h3>
+        <p>Hatchback</p>
+        <span class="badge">Económico y Confiable</span>
+    </div>
+    <div class="img-container">
+        <img src="sandero.png" alt="Renault Sandero" class="car-img">
+        <div class="car-shadow"></div>
+    </div>
+    <div class="card-specs">
+        <div class="spec">👤 5 Pasajeros</div>
+        <div class="spec">🧳 3 Valijas</div>
+        <div class="spec">⚙️ Manual</div>
+    </div>
+    <button class="btn-reserva" onclick="window.open('https://wa.me/2302411066?text=Hola! Me interesa alquilar un Sandero') ">Reservar Sandero</button>
+</div>
+        <div class="card-auto" data-categoria="pickup">
+            <div class="card-header">
+                <h3>TOYOTA HILUX</h3>
+                <p>Doble Cabina 4x4</p>
+                <span class="badge">Pick-up Premium</span>
+            </div>
+            
+            <div class="img-container">
+                <img src="hilux-transparente.png" alt="Toyota Hilux" class="car-img">
+                <div class="car-shadow"></div>
+            </div>
+
+            <div class="card-specs">
+                <div class="spec">👤 5 Pasajeros</div>
+                <div class="spec">🧳 4 Valijas</div>
+                <div class="spec">⚙️ Manual/Auto</div>
+            </div>
+            
+            <button class="btn-reserva" onclick="window.open('https://wa.me/2302411066?text=Hola! Me interesa  alquilar una Toyota Hilux')">
+                Reservar ahora
+            </button>
+        </div>
+   
+        </div>
+
+        <div class="carousel-controls">
+        <button class="control-btn prev">❮</button>
+        <button class="control-btn next">❯</button> </div>
+
+</section>
+<div class="bg-glow-3"></div>
+    <section id="requisitos" class="requisitos">
+        <h2>Requisitos para alquilar</h2>
+        <div class="requisitos-grid">
+            <div class="req-item"><span class="icon">🪪</span><h4>Licencia Vigente</h4><p>Registro de conducir al día.</p></div>
+            <div class="req-item"><span class="icon">💳</span><h4>Tarjeta de Crédito</h4><p>Física para la garantía.</p></div>
+            <div class="req-item"><span class="icon">🆔</span><h4>Documentación</h4><p>DNI o Pasaporte vigente.</p></div>
+            <div class="req-item"><span class="icon">🔞</span><h4>Edad +21</h4><p>Mínimo para el seguro.</p></div>
+        </div>
+    </section>
+
+    <section id="pasos" class="pasos">
+        <h2>Mi primer alquiler</h2>
+        <div class="pasos-container">
+            <div class="paso"><span class="numero">1</span><h3>Elegí tu modelo</h3><p>Navegá nuestra flota y seleccioná el ideal.</p></div>
+            <div class="paso"><span class="numero">2</span><h3>Consultá por WhatsApp</h3><p>Confirmamos disponibilidad al toque.</p></div>
+            <div class="paso"><span class="numero">3</span><h3>Retirá en Oficina</h3><p>Firmás contrato y te llevás las llaves.</p></div>
+        </div>
+    </section>
+
+  
+<section class="comunidad" id="comunidad">
+    <h2>Nuestra comunidad en movimiento</h2>
+    
+    <div class="bento-grid">
+        <div class="bento-item review tall-review">
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p>"Realmente el auto estuvo en excelentes condiciones, pude realizar mis viajes y demandas sin ningún problema. Excelente atención y predisposición ante consultas. ¡Excelente todo!"</p>
+            <span class="user-name">- Cliente Suauto</span>
+        </div>
+
+        <div class="bento-item media large-media">
+            <video autoplay muted loop playsinline class="bento-video">
+                <source src="video-suauto-hero.mp4" type="video/mp4">
+            </video>
+            <div class="media-tag">Flota en Ruta</div>
+        </div>
+
+        <div class="bento-item review">
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p>"Excelente atención, fácil de tramitar e info clara. Nos dieron un auto muy lindo y económico. ¡Ludmila una genia!"</p>
+            <span class="user-name">- Reseña de Google</span>
+        </div>
+
+        <div class="bento-item media">
+            <img src=interiorauto.jpg alt="Interior Suauto" class="bento-img">
+        </div>
+
+        <div class="bento-item review">
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p>"Excelente asesoramiento y acompañamiento. Vehículo cómodo y sin problemas. ¡Familia feliz! ❤️"</p>
+            <span class="user-name">- Familia Viajera</span>
+        </div>
+
+        <div class="bento-item media tall-media">
+            <video autoplay muted loop playsinline class="bento-video">
+                <source src="reel-entrega.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="bento-item review">
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p>"Excelente atención, respondieron a todas las preguntas e información que necesitaba!"</p>
+            <span class="user-name">- Cliente Satisfecho</span>
+        </div>
+
+        <div class="bento-item review">
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p>"Muy recomendable... Buena atención, predisposición y amabilidad."</p>
+            <span class="user-name">- Reseña Real</span>
+        </div>
+    </div>
+</section>
+    <section class="stats">
+        <div class="stat-item"><h3>+<span class="counter" data-target="1500">0</span></h3><p>Viajeros</p></div>
+        <div class="stat-item"><h3>+<span class="counter" data-target="2">0</span></h3><p>Años</p></div>
+        <div class="stat-item"><h3>#<span class="counter" data-target="1">0</span></h3><p>En Maps</p></div>
+    </section>
+
+<section class="faq" id="faq">
+    <h2>Preguntas Frecuentes</h2>
+    <div class="faq-container">
+    <div class="faq-item">
+  <div class="faq-question">
+    <span>¿Cuáles son los horarios de retiro y devolución?</span>
+    <i class="fas fa-chevron-down faq-icon"></i>
+  </div>
+  <div class="faq-answer">
+    <p>
+      Nuestros horarios de atención para el retiro y la devolución de vehículos son:
+      <br><br>
+      <strong>Lunes a viernes</strong><br>
+      8:30 a 12:15 hs<br>
+      16:30 a 20:30 hs
+      <br><br>
+      <strong>Sábados</strong><br>
+      8:30 a 12:15 hs
+      <br><br>
+      Domingos y feriados: cerrado.
+      <br><br>
+     
+     <br><br>
+
+    </p>
+      
+  </div>
+</div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>¿Cuáles son las formas de pago?</span>
+                <i class="fas fa-chevron-down faq-icon"></i> 
+            </div>
+            <div class="faq-answer">
+                <p>Aceptamos efectivo, transferencia bancaria y todas las tarjetas de crédito para el pago del alquiler.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>¿El seguro está incluido?</span>
+                <i class="fas fa-chevron-down faq-icon"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Sí, todas nuestras tarifas incluyen seguro con franquicia. Podés consultar los detalles en la sección de Legales.</p>
+            </div>
+        </div>
+         <div class="faq-item">
+            <div class="faq-question">
+                <span>¿Cómo funciona el depósito en garantía?</span>
+                <i class="fas fa-chevron-down faq-icon"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Al retirar el vehículo, se realiza un bloqueo preventivo en tu tarjeta de crédito. Este monto no se cobra, solo se retiene y se libera automáticamente al devolver el auto en las mismas condiciones en que fue entregado.</p>
+            </div>
+        </div>
+         <div class="faq-item">
+            <div class="faq-question">
+                <span>¿Puedo cruzar a países limítrofes (Chile, Uruguay, etc.)?</span>
+                <i class="fas fa-chevron-down faq-icon"></i>
+            </div>
+            <div class="faq-answer">
+                <p>No, por el momento nuestras unidades tienen permitido circular exclusivamente dentro del territorio nacional (Argentina). Esto nos permite garantizarte una asistencia mecánica rápida y eficiente en todo momento.</p>
+            </div>
+        </div>
+         <div class="faq-item">
+            <div class="faq-question">
+                <span>¿Puedo retirar el auto en un lugar y devolverlo en otro?</span>
+                <i class="fas fa-chevron-down faq-icon"></i>
+            </div>
+            <div class="faq-answer">
+                <p>No, las unidades deben ser retiradas y devueltas en nuestras oficinas de General Pico. Esta política nos ayuda a mantener nuestras tarifas competitivas y asegurar la disponibilidad de la flota para todos nuestros clientes locales.</p>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+</section>
+
+<section id="destinos" class="destinos-section">
+    <div class="section-header">
+        <h2>Explorá Argentina desde Pico</h2>
+
+    </div>
+    
+    <div class="destinos-viewport">
+        <div class="destinos-track">
+            <div class="destino-card" onclick="openModal('lapampa')">
+                <img src="lapampa.jpg" alt="La Pampa">
+                <div class="destino-info"><h3>La Pampa</h3><span class="btn-ver">Ver guía</span></div>
+            </div>
+            <div class="destino-card" onclick="openModal('buenosaires')">
+                <img src="buenosaires.jpg" alt="Buenos Aires">
+                <div class="destino-info"><h3>Buenos Aires</h3><span class="btn-ver">Ver guía</span></div>
+            </div>
+            <div class="destino-card" onclick="openModal('cordoba')">
+                <img src="cordoba.jpg" alt="Córdoba">
+                <div class="destino-info"><h3>Córdoba</h3><span class="btn-ver">Ver guía</span></div>
+            </div>
+            <div class="destino-card" onclick="openModal('santafe')">
+                <img src="santafe.jpg" alt="Santa Fe">
+                <div class="destino-info"><h3>Santa Fe</h3><span class="btn-ver">Ver guía</span></div>
+            </div>
+
+            <div class="destino-card" onclick="openModal('mendoza')">
+                <img src="mendoza.jpg" alt="Mendoza">
+                <div class="destino-info"><h3>Mendoza</h3><span class="btn-ver">Ver guía</span></div>
+            </div>
+            <div class="destino-card" onclick="openModal('sanjuan')">
+                <img src="sanjuan.jpg" alt="San Juan">
+                <div class="destino-info"><h3>San Juan</h3><span class="btn-ver">Ver guía</span></div>
+            </div>
+            <div class="destino-card" onclick="openModal('larioja')">
+                <img src="larioja.jpg" alt="La Rioja">
+                <div class="destino-info"><h3>La Rioja</h3><span class="btn-ver">Ver guía</span></div>
+            </div>
+            <div class="destino-card" onclick="openModal('sanluis')">
+                <img src="sanluis.jpg" alt="San Luis">
+                <div class="destino-info"><h3>San Luis</h3><span class="btn-ver">Ver guía</span></div>
+            </div>
+
+            <div class="destino-card" onclick="openModal('neuquen')">
+                <img src="neuquen.jpg" alt="Neuquén">
+                <div class="destino-info"><h3>Neuquén</h3><span class="btn-ver">Ver guía</span></div>
+            </div>
+            <div class="destino-card" onclick="openModal('rionegro')">
+                <img src="rionegro.jpg" alt="Río Negro">
+                <div class="destino-info"><h3>Río Negro</h3><span class="btn-ver">Ver guía</span></div>
+            </div>
+            <div class="destino-card" onclick="openModal('chubut')">
+                <img src="chubut.jpg" alt="Chubut">
+                <div class="destino-info"><h3>Chubut</h3><span class="btn-ver">Ver guía</span></div>
+            </div>
+            <div class="destino-card" onclick="openModal('santacruz')">
+                <img src="santacruz.jpg" alt="Santa Cruz">
+                <div class="destino-info"><h3>Santa Cruz</h3><span class="btn-ver">Ver guía</span></div>
+            </div>
+            <div class="destino-card" onclick="openModal('tierradelfuego')">
+                <img src="tierradelfuego.jpg" alt="Tierra del Fuego">
+                <div class="destino-info"><h3>Tierra del Fuego</h3><span class="btn-ver">Ver guía</span></div>
+            </div>
+
+            <div class="destino-card" onclick="openModal('salta')">
+                <img src="salta.jpg" alt="Salta">
+                <div class="destino-info"><h3>Salta</h3><span class="btn-ver">Ver guía</span></div>
+            </div>
+            <div class="destino-card" onclick="openModal('jujuy')">
+                <img src="jujuy.jpg" alt="Jujuy">
+                <div class="destino-info"><h3>Jujuy</h3><span class="btn-ver">Ver guía</span></div>
+            </div>
+            <div class="destino-card" onclick="openModal('tucuman')">
+                <img src="tucuman.jpg" alt="Tucumán">
+                <div class="destino-info"><h3>Tucumán</h3><span class="btn-ver">Ver guía</span></div>
+            </div>
+            <div class="destino-card" onclick="openModal('catamarca')">
+                <img src="catamarca.jpg" alt="Catamarca">
+                <div class="destino-info"><h3>Catamarca</h3><span class="btn-ver">Ver guía</span></div>
+            </div>
+            <div class="destino-card" onclick="openModal('santiago')">
+                <img src="santiago.jpg" alt="Santiago del Estero">
+                <div class="destino-info"><h3>Santiago</h3><span class="btn-ver">Ver guía</span></div>
+            </div>
+
+            <div class="destino-card" onclick="openModal('misiones')">
+                <img src="misiones.jpg" alt="Misiones">
+                <div class="destino-info"><h3>Misiones</h3><span class="btn-ver">Ver guía</span></div>
+            </div>
+            <div class="destino-card" onclick="openModal('corrientes')">
+                <img src="corrientes.jpg" alt="Corrientes">
+                <div class="destino-info"><h3>Corrientes</h3><span class="btn-ver">Ver guía</span></div>
+            </div>
+            <div class="destino-card" onclick="openModal('entrerios')">
+                <img src="entrerios.jpg" alt="Entre Ríos">
+                <div class="destino-info"><h3>Entre Ríos</h3><span class="btn-ver">Ver guía</span></div>
+            </div>
+            <div class="destino-card" onclick="openModal('chaco')">
+                <img src="chaco.jpg" alt="Chaco">
+                <div class="destino-info"><h3>Chaco</h3><span class="btn-ver">Ver guía</span></div>
+            </div>
+            <div class="destino-card" onclick="openModal('formosa')">
+                <img src="formosa.jpg" alt="Formosa">
+                <div class="destino-info"><h3>Formosa</h3><span class="btn-ver">Ver guía</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="carousel-controls-destinos">
+        <button class="dest-prev">❮</button>
+        <button class="dest-next">❯</button>
+    </div>
+</section>
+<div id="destino-modal" class="modal-wrapper">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <div id="modal-dinamico">
+            </div>
+    </div>
+</div>
+<footer class="main-footer">
+    <div class="footer-container">
+        <div class="footer-info">
+            <div class="logo">SUAUTO <span>Rent a Car</span></div>
+            <p>Donde los caminos encuentran su rumbo. Alquiler de vehículos en General Pico!.</p>
+           <div class="social-links">
+    <a href="https://www.instagram.com/suauto.rentacar?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
+        <i class="fab fa-instagram"></i> <span>@suauto.rentacar</span>
+    </a>
+</div>
+        </div>
+
+<div class="footer-map">
+    <h4>Nuestra Ubicación</h4>
+    <div class="map-wrapper">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.632008460447!2d-63.76524202348839!3d-35.661437114127274!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95c37d29b7dfa359%3A0x98960da4ab46754!2sSu%20Auto%20Rent%20a%20Car!5e0!3m2!1ses-419!2sar!4v1770732660950!5m2!1ses-419!2sar0" 
+            width="100%" 
+            height="350" 
+            style="border:0; border-radius: 15px;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+</div>
+
+        <div class="footer-contact">
+            <h4>Contacto</h4>
+            <ul>
+                <li>📍 Calle 10 Nº 331, Gral. Pico</li>
+                <li>📞 +54 9 2302 411066</li>
+   
+            </ul>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>&copy; 2026 SUAUTO Rent a Car. Todos los derechos reservados.</p>
+    </div>
+</footer>
+<a href="https://wa.me/5492302411066" class="whatsapp-float" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+</a>
+    <script src="script.js"></script>
+</body>
+</html>

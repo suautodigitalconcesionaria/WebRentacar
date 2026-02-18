@@ -1,0 +1,1538 @@
+﻿html {
+    scroll-behavior: smooth;
+    /* Dejá un margen arriba igual a la altura de tu header (aprox 80px) */
+    scroll-padding-top: 80px; 
+
+}
+/* 1. VARIABLES Y BASE */
+:root {
+    --bg: #0f0f0f;
+    --card: #181818;
+    --blue: #00a8ff;
+    --white: #ffffff;
+    --gray: #888;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--white);
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
+}
+
+/* 2. HEADER Y NAVEGACIÓN */
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background: rgba(15, 15, 15, 0.8);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    width: 90%;
+    z-index: 1000;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: var(--blue);
+    font-weight: 300;
+}
+
+/* 3. HERO SECTION (Impacto Inicial) */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(rgba(0,0,0,0.6), var(--bg)), url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=2021&auto=format&fit=crop'); /* Imagen de backup */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    padding: 0 5%;
+}
+
+.hero-content {
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.btn-main {
+    background: var(--blue);
+    color: white;
+    padding: 15px 35px;
+    text-decoration: none;
+    border-radius: 50px;
+    display: inline-block;
+    margin-top: 25px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-main:hover {
+    box-shadow: 0 0 20px rgba(0, 168, 255, 0.5);
+    transform: scale(1.05);
+}
+
+/* 4. FLOTA (Tarjetas de Autos) */
+.flota-container {
+    position: relative; /* Clave para que las flechas se ubiquen respecto a esto */
+    padding: 80px 5%;
+}
+
+.card {
+    background: var(--card);
+    border-radius: 20px;
+    padding: 30px;
+    border: 1px solid #333;
+    transition: 0.4s;
+    text-align: center;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    border-color: var(--blue);
+}
+
+.card-img img {
+    width: 100%;
+    margin: 20px 0;
+}
+
+.card-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    color: var(--gray);
+    margin-bottom: 20px;
+}
+
+.btn-wa {
+    background: transparent;
+    border: 1px solid var(--blue);
+    color: var(--blue);
+    padding: 12px 25px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    transition: 0.3s;
+}
+
+.btn-wa:hover {
+    background: var(--blue);
+    color: white;
+}
+.card-auto {
+    background: linear-gradient(180deg, #1e1e1e 0%, #0a0a0a 100%);
+    border-radius: 24px;
+    padding: 30px;
+    position: relative;
+    border: 1px solid #222;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* El resplandor azul detrás del auto */
+.card-auto::after {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 150px; height: 100px;
+    background: var(--blue);
+    filter: blur(80px);
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    transition: 0.4s;
+    z-index: 1;
+}
+
+.card-auto:hover::after { opacity: 0.2; }
+
+.card-auto:hover {
+    border-color: var(--blue);
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+.card-header h3 { font-size: 1.4rem; margin: 0; letter-spacing: 1px; }
+.card-header p { color: var(--gray); margin: 5px 0; font-size: 0.9rem; }
+.badge { background: #333; padding: 4px 12px; border-radius: 50px; font-size: 0.7rem; color: var(--blue); }
+
+/* Contenedor de la imagen y la sombra artificial */
+.img-container {
+    position: relative;
+    margin: 40px 0;
+    z-index: 2;
+}
+
+.car-img {
+    width: 100%;
+    filter: drop-shadow(0 10px 10px rgba(0,0,0,0.5));
+    transition: transform 0.4s;
+}
+
+.card-auto:hover .car-img { transform: scale(1.08); }
+
+.car-shadow {
+    width: 80%; height: 15px;
+    background: rgba(0,0,0,0.5);
+    filter: blur(8px);
+    border-radius: 50%;
+    margin: -10px auto 0;
+}
+
+.card-specs {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: #ccc;
+    margin-bottom: 25px;
+    border-top: 1px solid #222;
+    padding-top: 15px;
+}
+
+.btn-reserva {
+    background: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    padding: 12px;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-reserva:hover {
+    background: #fff;
+    color: #000;
+}
+/* 5. REQUISITOS */
+h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.requisitos { padding: 100px 5%; background: #121212; }
+.requisitos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    text-align: center;
+}
+
+.req-item .icon { font-size: 3rem; margin-bottom: 15px; display: block; }
+
+/* 6. PASOS (1, 2, 3) */
+.pasos { padding: 100px 5%; }
+.pasos-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+.paso {
+    text-align: center;
+    max-width: 250px;
+    position: relative;
+}
+.paso .numero {
+    font-size: 5rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.05);
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* 7. COMUNIDAD (COLLAGE) */
+.comunidad {
+    padding: 80px 5%;
+}
+
+.collage-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas fijas */
+    grid-auto-rows: 180px; /* Altura base de cada fila */
+    gap: 15px;
+}
+
+.collage-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    border: 1px solid #333;
+}
+
+.collage-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+/* Efectos de tamaño para las 8 fotos */
+.collage-item.tall { grid-row: span 2; } /* Ocupa 2 filas de alto */
+.collage-item.wide { grid-column: span 2; } /* Ocupa 2 columnas de ancho */
+
+/* Hover para que se mueva la foto */
+.collage-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Ajuste para celulares: que pasen a ser 2 columnas */
+@media (max-width: 768px) {
+    .collage-container {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 120px;
+    }
+}
+/* 8. MÉTRICAS (STATS) */
+.stats {
+    display: flex;
+    justify-content: space-around;
+    padding: 60px 5%;
+    text-align: center;
+}
+
+.stat-item h3 {
+    font-size: 2.5rem;
+    color: var(--blue);
+    margin-bottom: 10px;
+}
+
+.stat-item p {
+    color: var(--gray);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.8rem;
+}
+
+/* 9. RESPONSIVE (Para celulares) */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.2rem; }
+    .collage-container { grid-template-columns: repeat(2, 1fr); }
+    .stats { flex-direction: column; gap: 40px; }
+}
+/* Estado inicial de los elementos para que "aparezcan" */
+.card, .req-item, .paso, .collage-item {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+}
+
+/* Estado cuando se activan por el JS */
+.card.active, .req-item.active, .paso.active, .collage-item.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Carrusel Horizontal */
+.destinos-carrousel {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding: 20px 0;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none; /* Oculta scroll en Firefox */
+}
+
+.destinos-carrousel::-webkit-scrollbar { display: none; } /* Oculta scroll en Chrome */
+
+
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.95);
+    z-index: 2000;
+    overflow-y: auto;
+}
+
+.modal-content {
+    background: var(--card);
+    width: 90%;
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid #333;
+    position: relative;
+}
+}
+/* Menú Hamburguesa Mobile */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--white);
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.nav-links a:hover { color: var(--blue); }
+
+@media (max-width: 768px) {
+    .menu-hamburguesa { display: block; cursor: pointer; font-size: 1.8rem; }
+   .nav-links {
+        position: fixed;
+        right: -100%; /* Oculto */
+        top: 0;
+        width: 80%; /* No ocupa todo el ancho, deja ver el fondo */
+        height: 100vh;
+        background: rgba(15, 15, 15, 0.95);
+        backdrop-filter: blur(15px);
+        flex-direction: column;
+        justify-content: center;
+        gap: 30px;
+        transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 2000;
+        border-left: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-links li a {
+        font-size: 1.5rem; /* Más grande para tocar fácil con el dedo */
+    }
+}
+
+.main-footer {
+    background-color: #0a0a0a;
+    padding: 80px 5% 20px;
+    border-top: 1px solid #222;
+    margin-top: 50px;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-info p {
+    color: var(--gray);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-top: 20px;
+}
+
+.footer-info .logo {
+    font-size: 1.8rem;
+}
+
+.footer-contact h4, .footer-map h4 {
+    color: var(--white);
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-contact ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-contact li {
+    color: var(--gray);
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+/* 1. El contenedor del mapa */
+.map-wrapper {
+    width: 100%;
+    height: 350px;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid #333;
+    background: #000; /* Fondo negro por si tarda en cargar */
+    transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* 2. El iframe en estado "Oscuro" (reposo) */
+.map-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    /* Filtros: Grayscale para blanco y negro, Invert para el estilo dark, 
+       y Brightness para que no brille tanto */
+    filter: grayscale(1) invert(0.9) brightness(0.8) contrast(1.2);
+    transition: filter 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 3. El iframe al pasar el mouse (Hover) */
+.map-wrapper:hover iframe {
+    /* Quitamos todos los filtros para que se vea el mapa real con el pin rojo */
+    filter: grayscale(0) invert(0) brightness(1) contrast(1);
+}
+
+/* 4. Efecto extra en el borde al hacer hover */
+.map-wrapper:hover {
+    border-color: var(--blue);
+    box-shadow: 0 0 20px rgba(0, 168, 255, 0.2);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 60px;
+    border-top: 1px solid #1a1a1a;
+    margin-top: 40px;
+    color: #444;
+    font-size: 0.8rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-links a {
+    color: var(--gray);
+    font-size: 1.2rem;
+    transition: 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--blue);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .social-links {
+        justify-content: center;
+    }
+}
+}
+.faq {
+    padding: 80px 5%;
+    background: #0f0f0f;
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background: #181818;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    border: 1px solid #333;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.faq-question {
+    padding: 20px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-weight: bold;
+    color: var(--white);
+}
+
+.faq-icon {
+    color: var(--blue);
+    font-size: 1.5rem;
+    transition: transform 0.3s;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 25px;
+    background: #1c1c1c;
+    transition: all 0.3s ease;
+    color: var(--gray);
+}
+
+/* Estado Activo */
+.faq-item.active {
+    border-color: var(--blue);
+}
+
+.faq-item.active .faq-answer {
+    max-height: 200px; /* Ajustar según largo del texto */
+    padding: 20px 25px;
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(45deg);
+    color: #ff4b2b; /* Opcional: cambia de color al abrir */
+}
+/* Contenedor del Nav */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: rgba(15, 15, 15, 0.95);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 90%;
+    z-index: 2000;
+}
+
+/* Escondemos los links por defecto en mobile */
+.nav-links {
+    position: absolute;
+    top: -100vh; /* Escondido arriba */
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #0f0f0f;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    transition: 0.5s ease-in-out;
+    list-style: none;
+}
+
+/* Clase que activa el despliegue */
+.nav-links.active {
+    top: 0;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+/* Estilo de la Hamburguesa */
+.menu-hamburguesa {
+    cursor: pointer;
+    z-index: 2100; /* Siempre arriba del menu desplegado */
+}
+
+.linea {
+    width: 30px;
+    height: 3px;
+    background: white;
+    margin: 5px;
+    transition: 0.3s;
+}
+
+/* Animación para que la hamburguesa se vuelva una X (Opcional Pro) */
+.menu-hamburguesa.open .linea:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.menu-hamburguesa.open .linea:nth-child(2) { opacity: 0; }
+.menu-hamburguesa.open .linea:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+
+/* Estilos específicos para las reviews dentro del Bento */
+.review {
+    background: var(--card);
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid #222;
+}
+
+.review p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #ddd;
+    margin: 15px 0;
+    font-style: italic;
+}
+
+.user-name {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--blue);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.stars {
+    font-size: 0.7rem;
+    color: #ffcc00;
+}
+
+/* Clases de tamaño para el efecto "mosaico" */
+.large-media { grid-column: span 2; grid-row: span 2; }
+.tall-review { grid-row: span 2; }
+.tall-media { grid-row: span 2; }
+
+/* Efecto hover suave */
+.bento-item:hover {
+    border-color: var(--blue);
+    transform: translateY(-5px);
+    transition: 0.3s;
+}
+.bento-grid {
+    display: grid !important; /* Forzamos el modo grilla */
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas iguales */
+    grid-auto-rows: 220px; /* Altura de cada fila */
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+.bento-item {
+    background: #181818;
+    border-radius: 20px;
+    border: 1px solid #333;
+    overflow: hidden;
+    position: relative;
+}
+
+/* LAS REGLAS QUE DAN LA FORMA (Si esto falta, se ve como lista) */
+.large-media { 
+    grid-column: span 2; 
+    grid-row: span 2; 
+}
+
+.tall-review, .tall-media { 
+    grid-row: span 2; 
+}
+
+/* Para que en el celu no se vea todo apretado, ahí sí lo pasamos a lista o 2 columnas */
+@media (max-width: 900px) {
+    .bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 180px;
+    }
+    .large-media {
+        grid-column: span 2;
+    }
+}
+/* Esto aplica para todos los videos e imágenes del bento */
+.bento-video, .bento-img {
+    width: 100%;
+    height: 100%;
+    
+    /* 1. Hace que la imagen llene el marco sin deformarse */
+    object-fit: cover; 
+    
+    /* 2. El "Encuadre": 
+       El primer valor es horizontal (left, center, right)
+       El segundo es vertical (top, center, bottom) */
+    object-position: center center; 
+    
+    display: block;
+}
+
+/* Si en un video específico (por ejemplo el de la Hilux) 
+   querés que se vea más la parte de arriba porque abajo hay pasto: */
+.large-media .bento-video {
+    object-position: center top; /* Prioriza la parte de arriba */
+}
+
+/* Si en una foto de interior querés que se vea más el volante (a la izquierda) */
+.bento-item.media img {
+    object-position: left center;
+}
+
+/* Carrusel */
+.destinos-carrousel {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 20px 0;
+    scrollbar-width: none; /* Oculta scroll en Firefox */
+}
+.destinos-carrousel::-webkit-scrollbar { display: none; } /* Oculta scroll en Chrome */
+
+.destino-card {
+    min-width: 300px;
+    height: 400px;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.destino-card img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: 0.5s;
+}
+
+.destino-card:hover img { transform: scale(1.1); }
+
+.destino-info {
+    position: absolute; bottom: 0; left: 0; width: 100%;
+    padding: 25px; background: linear-gradient(transparent, rgba(0,0,0,0.8));
+}
+
+/* Modal */
+.modal-wrapper {
+    display: none; /* Escondido por defecto */
+    position: fixed; top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.9);
+    backdrop-filter: blur(8px);
+    z-index: 3000;
+}
+
+.modal-content {
+    background: #181818;
+    width: 90%; max-width: 700px;
+    margin: 50px auto;
+    padding: 30px; border-radius: 25px;
+    position: relative; border: 1px solid #333;
+}
+
+.close-btn {
+    position: absolute; top: 15px; right: 25px;
+    font-size: 35px; color: var(--blue); cursor: pointer;
+}
+
+/* 1. El marco que esconde el excedente */
+.flota-carousel-wrapper {
+    width: 100%;
+    overflow-x: auto; /* Permite scroll táctil */
+    scroll-behavior: smooth;
+    scrollbar-width: none; /* Oculta scroll en Firefox */
+    padding: 20px 0;
+}
+
+.flota-carousel-wrapper::-webkit-scrollbar {
+    display: none; /* Oculta scroll en Chrome/Safari */
+}
+
+/* 2. La pista que obliga a los autos a estar en fila india */
+.flota-grid.carousel-track {
+    display: flex !important; /* Cambiamos grid por flex */
+    gap: 25px;
+    padding: 0 5%;
+    width: max-content; /* Obliga a que la línea no se corte */
+}
+
+
+/* 4. Estilo de los botones */
+.carousel-controls {
+    position: absolute;
+    top: 55%; /* Los centra verticalmente respecto a los autos */
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between; /* Uno a cada punta */
+    padding: 0 2%;
+    pointer-events: none; /* Evita que el contenedor tape los clics a los autos */
+    z-index: 100;
+}
+
+.control-btn {
+    pointer-events: all; /* Devuelve el clic solo a los botones */
+    background: rgba(24, 24, 24, 0.8);
+    backdrop-filter: blur(5px);
+    color: white;
+    border: 1px solid #333;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+.control-btn:hover {
+    border-color: var(--blue);
+    color: var(--blue);
+    transform: scale(1.1);
+}
+/* Ajuste de tamaño para que entren más cards en pantalla */
+.card-auto {
+    min-width: 260px; /* Bajamos de 320px a 260px para que entren más */
+    max-width: 280px;
+    padding: 20px;    /* Relleno más ajustado */
+    background: linear-gradient(180deg, #1e1e1e 0%, #0a0a0a 100%);
+    border-radius: 18px;
+    border: 1px solid #222;
+    flex-shrink: 0;
+    transition: all 0.4s ease;
+}
+
+/* Ajustamos los textos internos para que no queden gigantes */
+.card-header h3 {
+    font-size: 1.1rem; /* Nombre del auto más sutil */
+    margin: 0;
+}
+
+.card-header p {
+    font-size: 0.8rem;
+    color: var(--gray);
+}
+
+.img-container {
+    margin: 20px 0; /* Menos espacio muerto arriba y abajo del auto */
+}
+
+.card-specs {
+    gap: 10px;
+    font-size: 0.75rem; /* Iconos y texto de specs más chicos */
+    padding-top: 10px;
+}
+
+.btn-reserva {
+    padding: 10px;
+    font-size: 0.85rem;
+}
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+    z-index: 5000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    background-color: #128c7e;
+}
+
+.whatsapp-float img {
+    width: 35px;
+}
+.modal-img-main {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.badge-provincia {
+    background: var(--blue);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 50px;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.modal-desc {
+    color: #ccc;
+    line-height: 1.6;
+    margin: 15px 0;
+}
+
+.destacados-section h4 {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    color: var(--blue);
+}
+
+.lugar-destacado {
+    background: #222;
+    padding: 12px 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.3s;
+    border: 1px solid transparent;
+}
+
+.lugar-destacado:hover {
+    background: #2a2a2a;
+    border-color: var(--blue);
+}
+
+.lugar-info strong {
+    display: block;
+    font-size: 0.95rem;
+}
+
+.lugar-info span {
+    font-size: 0.8rem;
+    color: var(--gray);
+}
+
+.btn-wa-modal {
+    width: 100%;
+    background: #25d366;
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+/* Carrusel de Destinos */
+.destinos-viewport {
+    width: 100%;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    padding: 20px 0;
+}
+.destinos-viewport::-webkit-scrollbar { display: none; }
+.destinos-track {
+    display: flex;
+    gap: 20px;
+    padding: 0 5%;
+    width: max-content;
+}
+.destino-card {
+    min-width: 240px;
+    height: 350px;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.destino-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.destino-info {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 20px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.9));
+}
+.carousel-controls-destinos {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+.carousel-controls-destinos button {
+    background: #181818;
+    color: white;
+    border: 1px solid #333;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+/* --- REPARACIÓN REQUISITOS --- */
+.requisitos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    padding: 40px 5%;
+}
+
+.req-item {
+    background: var(--card);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid #222;
+    opacity: 0; /* Para el efecto reveal */
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+}
+
+.req-item i {
+    font-size: 2.5rem;
+    color: var(--blue);
+    margin-bottom: 20px;
+    display: block;
+}
+
+/* --- REPARACIÓN PASOS --- */
+.pasos-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 40px 5%;
+    flex-wrap: wrap;
+}
+
+.paso {
+    background: var(--card);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    flex: 1;
+    min-width: 250px;
+    border: 1px solid #222;
+    opacity: 0; /* Para el efecto reveal */
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+}
+
+.paso-numero {
+    width: 70px;
+    height: 70px;
+    background: #1a1a1a; /* Empieza oscuro */
+    color: #444; /* Texto casi invisible */
+    border: 2px solid #333;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin: 0 auto 20px;
+    transition: all 0.8s ease; /* Transición suave para el encendido */
+}
+
+/* Cuando se activa la clase .active via JS */
+.paso.active .paso-numero {
+    background: var(--bg);
+    color: var(--white);
+    border-color: var(--blue);
+    box-shadow: 0 0 25px rgba(0, 168, 255, 0.7), inset 0 0 10px rgba(0, 168, 255, 0.4);
+    text-shadow: 0 0 10px var(--white);
+}
+
+/* El círculo de pulso que pediste antes, ahora solo se activa al prenderse */
+.paso.active .paso-numero::after {
+    content: "";
+    position: absolute;
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    border: 2px solid var(--blue);
+    animation: pulsoNeon 2s infinite;
+}
+
+@keyframes pulsoNeon {
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(1.6); opacity: 0; }
+}
+}
+
+/* --- CLASE QUE ACTIVA LA ANIMACIÓN --- */
+.req-item.active, .paso.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+.social-links a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio entre icono y texto */
+    transition: 0.3s;
+}
+
+.social-links a i {
+    font-size: 1.8rem;
+    color: #E1306C; /* El color de Instagram para que resalte */
+}
+
+.social-links a:hover {
+    transform: scale(1.05);
+    opacity: 0.8;
+}
+/* FORZAR TAMAÑO ÚNICO DE CARDS */
+.destino-card {
+    min-width: 240px !important;
+    max-width: 240px !important;
+    height: 350px !important; /* Altura fija obligatoria */
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    background: #111;
+}
+
+.destino-card img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; /* Corta la imagen para que llene el espacio sin estirarse */
+    object-position: center !important;
+    transition: 0.5s ease;
+    display: block;
+}
+
+/* --- SECCIÓN PREGUNTAS (FAQ) --- */
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.faq-item {
+    background: var(--card);
+    margin-bottom: 15px;
+    border-radius: 12px;
+    border: 1px solid #222;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+/* Estilo de la flecha */
+.faq-question i {
+    font-size: 0.9rem;
+    color: var(--blue);
+    transition: transform 0.3s ease; /* Para que gire suave */
+}
+
+.faq-answer {
+    max-height: 0; /* Escondido por defecto */
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    background: #111;
+}
+
+.faq-answer p {
+    padding: 20px;
+    color: #ccc;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Estado cuando se abre */
+.faq-item.active {
+    border-color: var(--blue);
+}
+
+.faq-item.active .faq-answer {
+    max-height: 300px; /* Permitimos que se estire */
+}
+
+.faq-item.active .faq-question i {
+    transform: rotate(180deg);
+}
+
+/* El icono (flecha o cruz) */
+.faq-icon {
+    font-size: 1.2rem;
+    color: var(--blue);
+    transition: transform 0.4s ease; /* Esto hace que el giro sea suave */
+}
+/* Cuando la pregunta está activa, el icono gira */
+.faq-item.active .faq-icon {
+    transform: rotate(180deg);
+    color: var(--white); /* Cambio opcional de color al abrir */
+}
+/* --- EFECTOS DE FONDO DINÁMICO --- */
+
+/* --- RESPLANDORES REFORZADOS --- */
+
+.bg-glow-1 {
+    position: fixed;
+    top: -10%;
+    right: -5%;
+    width: 600px;
+    height: 600px;
+    /* Azul más fuerte y con más presencia */
+    background: radial-gradient(circle, rgba(0, 168, 255, 0.3) 0%, rgba(0, 71, 171, 0.1) 40%, transparent 70%);
+    filter: blur(60px);
+    z-index: -1;
+    pointer-events: none;
+    animation: floatingGlow 10s infinite alternate ease-in-out;
+}
+
+.bg-glow-2 {
+    position: fixed;
+    bottom: -5%;
+    left: -5%;
+    width: 500px;
+    height: 500px;
+    /* Un toque de violeta/cian para que no sea todo igual */
+    background: radial-gradient(circle, rgba(0, 210, 255, 0.25) 0%, rgba(0, 168, 255, 0.05) 50%, transparent 70%);
+    filter: blur(90px);
+    z-index: -1;
+    pointer-events: none;
+    animation: floatingGlow 8s infinite alternate-reverse ease-in-out;
+}
+
+/* Animación para que las luces se muevan despacito */
+@keyframes floatingGlow {
+    0% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+    100% { transform: translate(50px, 30px) scale(1.2); opacity: 1; }
+}
+/* Un toque de ruido para que el fondo no sea un color liso aburrido */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+    opacity: 0.03; /* Muy sutil */
+    z-index: -1;
+    pointer-events: none;
+}
+.card-auto, .destino-card {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-auto:hover, .destino-card:hover {
+    box-shadow: 0 15px 40px rgba(0, 168, 255, 0.15); /* Sombra azul tenue al pasar el mouse */
+}
+.req-item {
+    background: rgba(255, 255, 255, 0.03) !important; /* Transparencia mínima */
+    backdrop-filter: blur(15px); /* El efecto de desenfoque pro */
+    border: 1px solid rgba(0, 168, 255, 0.2) !important; /* Borde azulado muy fino */
+    padding: 40px 30px;
+    border-radius: 24px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.req-item:hover {
+    background: rgba(0, 168, 255, 0.08) !important;
+    transform: translateY(-10px) scale(1.02);
+    border-color: var(--blue) !important;
+    box-shadow: 0 20px 40px rgba(0, 168, 255, 0.1);
+}
+
+.req-item i {
+    font-size: 3rem;
+    background: linear-gradient(45deg, var(--white), var(--blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* Iconos con degradado */
+    margin-bottom: 25px;
+}
+.pasos-container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    z-index: 1;
+}
+
+/* Línea que une los pasos (solo en desktop) */
+@media (min-width: 768px) {
+    .pasos-container::before {
+        content: "";
+        position: absolute;
+        top: 50px; /* Alineada con los números */
+        left: 10%;
+        right: 10%;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, var(--blue), transparent);
+        z-index: -1;
+    }
+}
+
+.paso-numero {
+    width: 70px;
+    height: 70px;
+    background: var(--bg);
+    border: 3px solid var(--blue);
+    box-shadow: 0 0 20px rgba(0, 168, 255, 0.4); /* Brillo neón */
+    font-size: 2rem;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+/* Un pequeño detalle de "pulso" animado al número */
+.paso-numero::after {
+    content: "";
+    position: absolute;
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    border: 2px solid var(--blue);
+    animation: pulso 2s infinite;
+}
+
+@keyframes pulso {
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(1.5); opacity: 0; }
+}
+.section-header h2 {
+    font-size: 2.5rem;
+    letter-spacing: -1px;
+    margin-bottom: 10px;
+}
+
+.section-header::before {
+    content: "PROCESO SIMPLE";
+    display: block;
+    color: var(--blue);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+.req-item, .paso, .card-auto {
+    background: rgba(20, 20, 20, 0.7) !important;
+    border: 1px solid rgba(0, 168, 255, 0.3) !important; /* Borde azul neón suave */
+    box-shadow: 0 0 15px rgba(0, 168, 255, 0.05); /* Un aura azul alrededor de la caja */
+}
+
+.req-item:hover, .paso:hover {
+    border-color: var(--blue) !important;
+    box-shadow: 0 0 30px rgba(0, 168, 255, 0.2); /* Brilla más al tocarla */
+}
+.bg-glow-3 {
+    position: fixed;
+    top: 40%;
+    left: 30%;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(0, 168, 255, 0.15) 0%, transparent 60%);
+    filter: blur(120px);
+    z-index: -1;
+    pointer-events: none;
+}
+/* Unificamos el ancho de todas las secciones principales */
+.requisitos-section, .pasos-section, .faq, .stats, .comunidad-section {
+    max-width: 1200px;
+    margin: 80px auto !important; /* Más espacio entre secciones */
+    padding: 0 5%;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px; /* Más espacio entre el título y el contenido */
+}
+.req-item, .paso, .faq-item {
+    background: rgba(25, 25, 25, 0.95) !important; /* Más sólido para que se lea mejor */
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* El texto de los párrafos debe ser más claro y espaciado */
+p {
+    color: #bbb;
+    line-height: 1.8; /* Más espacio entre líneas ayuda a la lectura */
+    font-size: 1rem;
+}
+section {
+    position: relative;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+/* Una línea de luz muy sutil entre secciones */
+section::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 168, 255, 0.2), transparent);
+}
+.bg-glow-1, .bg-glow-2 {
+    opacity: 0.4; /* Bajamos la intensidad */
+    filter: blur(150px); /* Más desenfoque para que sea una mancha suave */
+}
+/* 1. Estado inicial (Fantasmas) */
+.card, .req-item, .card-auto, .destino-card, .paso {
+    opacity:0 !important;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+    visibility: visible !important; /* Aseguramos que no estén ocultos por otra cosa */
+}
+
+/* 2. Estado Activo (Cuando JS da la orden) */
+.card.active, .req-item.active, .card-auto.active, .destino-card.active, .paso.active {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* 3. El efecto de los números de los pasos */
+.paso-numero {
+    background: #1a1a1a !important; /* Apagado */
+    color: #444 !important;
+    border: 2px solid #333 !important;
+    transition: all 0.5s ease;
+}
+
+.paso.active .paso-numero {
+    background: var(--bg) !important;
+    color: var(--white) !important;
+    border-color: var(--blue) !important;
+    box-shadow: 0 0 20px rgba(0, 168, 255, 0.6) !important;
+    text-shadow: 0 0 10px white;
+}
+.intro-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100vh;
+    background: #000;
+    z-index: 9999; /* Por encima de todo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 1s ease, visibility 1s;
+}
+
+#intro-video {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    opacity: 0.5; /* Para que el video no tape el texto */
+}
+
+.intro-content {
+    position: relative;
+    text-align: center;
+    z-index: 10000;
+    padding: 20px;
+}
+
+.intro-content h1 {
+    font-size: 3rem;
+    margin-bottom: 30px;
+    text-shadow: 0 0 20px rgba(0, 168, 255, 0.8);
+    max-width: 800px;
+}
+
+/* Clase para ocultar la intro */
+.intro-hidden {
+    opacity: 0;
+    visibility: hidden;
+}
