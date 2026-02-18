@@ -301,10 +301,25 @@ h2 {
 
 /* Ajuste para celulares: que pasen a ser 2 columnas */
 @media (max-width: 768px) {
-    .collage-container {
-        grid-template-columns: repeat(2, 1fr);
-        grid-auto-rows: 120px;
-    }
+
+  .collage-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .collage-item {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Anula spans de desktop */
+  .collage-item {
+    grid-column: unset !important;
+    grid-row: unset !important;
+  }
+
+}
 }
 /* 8. MÉTRICAS (STATS) */
 .stats {
@@ -727,14 +742,26 @@ h2 {
     grid-row: span 2; 
 }
 
-/* Para que en el celu no se vea todo apretado, ahí sí lo pasamos a lista o 2 columnas */
-@media (max-width: 900px) {
+/* Para que en el celu quede todo en una sola columna vertical */
+@media (max-width: 768px) {
     .bento-grid {
-        grid-template-columns: repeat(2, 1fr);
-        grid-auto-rows: 180px;
+        /* Cambiamos a 1 sola columna */
+        grid-template-columns: 1fr; 
+        /* Ajustamos la altura automática para que el contenido respire */
+        grid-auto-rows: auto; 
+        gap: 15px;
     }
+
+    .large-media, .bento-item {
+        /* Todos los elementos ocupan el ancho total de esa única columna */
+        grid-column: span 1 !important;
+        /* Les damos una altura mínima para que no se colapsen */
+        min-height: 200px; 
+    }
+
+    /* Opcional: Si quieres que el video o imagen principal sea más alta */
     .large-media {
-        grid-column: span 2;
+        min-height: 300px;
     }
 }
 /* Esto aplica para todos los videos e imágenes del bento */
