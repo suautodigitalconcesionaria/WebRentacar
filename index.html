@@ -419,10 +419,25 @@
     </div>
 </footer>
 
-<a href="https://wa.me/5492302411066" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+<a href="https://wa.me/5492302411066" class="whatsapp-float" target="_blank" rel="noopener noreferrer" id="whatsappBtn">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
 </a>
 
 <script src="script.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const whatsappBtn = document.getElementById("whatsappBtn");
+
+  if (whatsappBtn) {
+    whatsappBtn.addEventListener("click", function () {
+      gtag("event", "click_whatsapp", {
+        event_category: "conversion",
+        event_label: "Boton flotante",
+        value: 1
+      });
+    });
+  }
+});
+</script>
 </body>
 </html>
